@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Box = styled.div`
+const Box = styled(motion.div)`
   width: 200px;
   height: 200px;
   background-color: white;
@@ -20,10 +20,16 @@ const Box = styled.div`
 function App() {
   return (
     <Wrapper>
-      <Box />
-      <div></div>
- 
-      <motion.div></motion.div>
+      <Box /* transition={{ delay : 3 }} animate={{borderRadius: "100px"}}  */
+            // dampimg:  반동력
+            // force : 힘
+            // stiffness : 경직됨 
+            // elasticity : 탄력성 
+            //,damping: 5 ,stiffness : 10 
+            transition={{ type: "spring",bounce : 0.5 }} 
+            initial={{ scale : 0 }} //초기 스타일
+            animate={{ scale: 1 , rotateZ: 360 }}  //최종모습 
+            /> 
     </Wrapper>
   );
 }
